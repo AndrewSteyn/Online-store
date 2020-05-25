@@ -1,0 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background: #eecda3;
+    background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+    background: linear-gradient(to right, #eecda3, #ef629f);
+    min-height: 100vh;
+  }
+.items{
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card{
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 35px;
+}
+.jumbotron{
+    background-color: rgba(255, 255, 255, 0);
+}
+.container{
+    color: rgb(255, 255, 255);
+}
+#map {
+    background-color: white;
+    height: 400px;
+    width:100%
+}
+#link{
+    color:white;
+}
+#link:link, #link :visited {
+    background-color: #8d04fd;
+    color: rgb(255, 255, 255);
+    padding: 17px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  #link:hover, #link:active {
+    background-color: red;
+    color: white;
+  }
+  .cartIcon{
+      position: fixed;
+      top: 20px;
+      right: 20px;
+    
+  }
