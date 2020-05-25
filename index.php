@@ -28,24 +28,19 @@
     <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="index.php">Di's Jewels</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="include/shoppingCart.php">Shopping cart</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+
         </ul>
     </div>
     </nav>
@@ -80,7 +75,7 @@
                       
         ?>
         </div>
-        <div id="map"></div>
+        <div id="map">Map</div>
 
         <script>
         function myMap() {
@@ -116,7 +111,7 @@
                         array_push($cartArr,$row["cart_product"],$row["quantity"]);
                     }
                 }    
-                var_dump($cartArr);
+                //var_dump($cartArr);
                 //call to JS function with a Vue hook
                 echo '<script>cleanUpVue();</script>';
             }else{

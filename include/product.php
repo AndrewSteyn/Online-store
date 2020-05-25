@@ -34,8 +34,9 @@ class product{
                         </button>
                     </div>
                     <div class=\"modal-body\">
-                        <img src=\"images/$this->image\" class=\"img-rounded\">
-                        $this->description
+                        <img src=\"images/$this->image\" class=\"img-rounded popup\">
+                        </br>
+                        <p class=\"descrip\">$this->description<p>
 
                     </div>
                     <div class=\"modal-footer\">

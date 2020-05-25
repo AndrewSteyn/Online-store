@@ -53,3 +53,10 @@ body {
       right: 20px;
     
   }
+  .popup{
+      width: 500px;
+      border-radius: 20px;
+  }
+  .descrip{
+      font-size: 25px;
+  }
