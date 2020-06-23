@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "connectoop.php";
+require_once "connect.php";
 session_start();
  
 // Define variables and initialize with empty values
@@ -15,7 +15,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
     }else{
-
+        // Prepare a select statement
+        // PREPARING AND BINDING A STATEMENT
+        /*
+         *   When preparing a statement parameters are left unspecified with ?'s
+         *   The database will then optimize the query as a template and store the 
+             result without execution
+         *   The statement is only executed when the applicaion binds the values to
+             the parameters
+         *   Prepared statements reduce parsing time in this way
+         *   Bound parameters reduce data transfer as only values need to be relayed
+         *   Reduces the possibility of SQL injection, but data parsed from an external source
+             eg. user input must ALWAYS be sanitized
+         Can be,
+         i - integer
+         s - string
+         d - double
+         b - BLOB
+         *
+         */
         $sql = "SELECT id FROM users WHERE username = ?";
         
         if($stmt = $mysqli->prepare($sql)){
@@ -75,9 +93,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
             }else{
                 echo "Oops! Something went wrong. Please try again later.";
-            } 
+            }
         }
-        $stmt->close(); 
+         
+        // Close statement and deallocate it from memory
+        $stmt->close();
     }
     
     // Validate password /////////////////////////////////////////
@@ -101,34 +121,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Check input errors before inserting in database
     if(empty($username_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)){
-        echo "got here";
+
         $param_username = $username;
         $param_email = $email;
         $param_confirmNum = rand(100000, 999999);
         $param_password = password_hash($password, PASSWORD_DEFAULT);
-        
 
-        $sql = "INSERT INTO users (username, passwrd, email, confirm, confirmNum) VALUES ($param_username, $param_password, $param_email, 0, $param_confirmNum)";
-        
-        if($stmt = $mysqli->query($sql)){
-            
-            if($stmt->execute()){
-                // Redirect to login page
+        $sql = "INSERT INTO users (username, password, email, confirmNum) VALUES ('$param_username', '$param_password', '$param_email', '$param_confirmNum')";
+        echo $sql;
+        if ($mysqli->query($sql)) {
+                unset($sql);
                 $_SESSION["confirmNum"] = $param_confirmNum;
                 header("location: confirm.php");
-            } else{
-                echo "Something went wrong. Please try again later.";
+
+            }else {
+                echo "Error: " . $sql . "<br>" . $mysqli->error;
             }
-            $stmt->close();  
         }
-        
-        // Close statement
-        
     }
     
     // Close connection
     $mysqli->close();
-}
+
 ?>
  
 <!DOCTYPE html>
@@ -136,9 +150,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <link rel="stylesheet" href="..css/styles.css">
+    <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
     </style>

@@ -41,15 +41,15 @@ if(isset($_POST["email"])){
                 $param->isSMTP();                         // Set mailer to use SMTP
                 $param->Host       = 'smtp.mailtrap.io';  // Specify main and backup SMTP servers
                 $param->SMTPAuth   = true;                // Enable SMTP authentication
-                $param->Username   = '058c8c10955c23';    // SMTP username
-                $param->Password   = 'a66e65a4ae45ce';    // SMTP password
+                $param->Username   = '3c52a86d140a7b';    // SMTP username
+                $param->Password   = '1422144da449c9';    // SMTP password
                 $param->SMTPSecure = 'TLS';               // Enable TLS encryption, `ssl` also accepted
                 $param->Port       = 2525;                // TCP port to connect to
 
                 //Recipients
-                $param->setFrom('lyndon@rabbitmacht.co.za', 'lyndon');
+                $param->setFrom('andrew@rabbitmacht.co.za', 'lyndon');
                 $param->addAddress($param4, 'a good guy');     // Add a recipient
-                $param->addReplyTo('lyndon@rabbitmacht.co.za', 'Information');
+                $param->addReplyTo('andrew@rabbitmacht.co.za', 'Information');
 
                 // Content
                 $param->isHTML(true);                                  // Set email format to HTML
@@ -58,7 +58,7 @@ if(isset($_POST["email"])){
         "Hi <br> 
         A request for a password reset has been sent to this email address <br>
         Please follow the link below to reset your passowrd <br>
-        <a href=\"http://class/userProfilesApp/resetByEmail.php?email=".$param4."&confirm=".password_hash($param5, PASSWORD_DEFAULT)."\">here</a> ";
+        <a href=\"http://test/To%20Do/inc/resetByEmail.php?email=".$param4."&confirm=".password_hash($param5, PASSWORD_DEFAULT)."\">here</a> ";
                 $param->AltBody = 'This is the body in plain text for non-HTML mail clients';
                 $param->send();
                 echo 'Message has been sent';

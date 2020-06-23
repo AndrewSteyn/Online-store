@@ -4,13 +4,13 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to index page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: index.php");
+    header("location: ../index.php");
     //if you reach here output message and terminate the script (msg none supplied)
     exit;
 }
  
 // Include config file
-require_once "connectoop.php";
+require_once "connect.php";
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -36,12 +36,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, passwrd, confirm FROM users WHERE username = ?";
+        $sql = "SELECT id, username, password, confirm FROM users WHERE username = ?";
         
         if($stmt = $mysqli->prepare($sql)){
             // Bind variables to the prepared statement as parameters
             $stmt->bind_param("s", $param_username);
-            
             // Set parameters
             $param_username = $username;
             
@@ -69,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             
                             // Redirect user to index page
-                            header("location: ..index.php");
+                            header("location: ../index.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";

@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Include config file
-require_once "connectoop.php";
+require_once "connect.php";
 require_once  "vendor/autoload.php";
 session_start();
  
@@ -80,18 +80,18 @@ $mysqli->close();
                 $param->Port       = 2525;                // TCP port to connect to
 
                 //Recipients
-                $param->setFrom('andrew-3f02ff@inbox.mailtrap.io', 'andrew');
+                $param->setFrom('andrew@rabbitmacht.co.za', 'andrew');
                 $param->addAddress($param4, 'a good guy');     // Add a recipient
-                $param->addReplyTo('andrew-3f02ff@inbox.mailtrap.io', 'Information');
+                $param->addReplyTo('andrew@rabbitmacht.co.za', 'Information');
 
                 // Content
                 $param->isHTML(true);                                  // Set email format to HTML
-                $param->Subject = 'Your account has been created';
+                $param->Subject = 'User Profiles App Confirmation';
                 $param->Body    = 
         "Hi ".$param3. " <br> 
         Welcome to the User Profiles App <br>
         Please confirm your email address by visiting the link below <br>
-        <a href=\"http://class/userProfilesApp/confirmEmail.php?email=".$param4."&confirmNum=".password_hash($param5, PASSWORD_DEFAULT)."\">here</a> ";
+        <a href=\"http://store/include/confirmEmail.php?email=".$param4."&confirmNum=".password_hash($param5, PASSWORD_DEFAULT)."\">here</a> ";
                 $param->AltBody = 'This is the body in plain text for non-HTML mail clients';
                 $param->send();
                 echo 'Message has been sent';
