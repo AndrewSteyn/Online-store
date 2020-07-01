@@ -23,9 +23,7 @@ body {
 .jumbotron{
     background-color: rgba(255, 255, 255, 0);
 }
-.container{
-    color: rgb(255, 255, 255);
-}
+
 #map {
     background-color: white;
     height: 400px;
@@ -60,3 +58,6 @@ body {
   .descrip{
       font-size: 25px;
   }
+.confirmMessage{
+    text-align: center;
+}

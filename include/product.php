@@ -20,7 +20,7 @@ class product{
                 <div class=\"card-body\">
                     <h5 class=\"card-title\">$this->name</h5>
                     <p class=\"card-text\">R$this->price</p>
-                    <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModalCenter$this->image\">More Info</button>
+                    <button type=\"button\" class=\"btn btn-dark rounded-pill py-2 btn-block\" data-toggle=\"modal\" data-target=\"#exampleModalCenter$this->image\">More Info</button>
                 </div>
             </div>
 
@@ -40,8 +40,12 @@ class product{
 
                     </div>
                     <div class=\"modal-footer\">
-                        <input type=\"number\" hidden value=\"$this->image\">
-                        <button type=\"button\" class=\"btn btn-primary\" @click=\"addToCart\" onclick=\"updateCartAjax()\">Add to Cart</button>
+                    <form action=\"". htmlspecialchars($_SERVER["PHP_SELF"]) ." \" method=\"post\">
+                        <input type=\"text\" name=\"cartname\" hidden value=\"$this->name\">
+                        <input type=\"text\" name=\"cartprice\" hidden value=\"$this->price\">
+                        <input type=\"text\" name=\"cartimage\" hidden value=\"$this->image\">
+                        <button id=\"addbut\" class=\"btn btn-dark rounded-pill py-2 btn-block\" type=\"submit\"  name=\"add\">Add To Cart </button>
+                    </form>
                     </div>
                     </div>
                 </div>

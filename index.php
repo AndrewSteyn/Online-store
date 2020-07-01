@@ -51,11 +51,30 @@
            </div>   
 
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+        <div class="container text-dark">
             <h1 class="display-4">Di van der Riet Jewellery</h1>
             <p class="lead">These unique hand-mand pieces are crafted in the heart of the karoo, each with its own soal.</p>
         </div>
     </div>
+
+    <?php
+
+    if (isset($_POST['cartname'])) {
+        $loggedInUser = $_SESSION["id"];;
+        $cleanname = ($_POST['cartname']);
+        $cleanprice = ($_POST['cartprice']);
+        $cleanimage = ($_POST['cartimage']);
+        $sql = "INSERT INTO cart (user_id, product_name, product_price, product_image)
+        VALUES ('$loggedInUser','$cleanname','$cleanprice', '$cleanimage')";
+        //Execute query and validate success
+         if ($mysqli->query($sql)) {
+            echo "<div class=\"confirmMessage\"><p>Item Added To Cart</p></div>";
+            unset($sql);
+        } else {
+             echo "<div class=\"confirmMessage\"> Error: <br>" . $sql . "<br>" . $mysqli->error . "</div";
+         }	
+    }
+    ?>
 
     <div class="items">
     <?php
@@ -74,24 +93,8 @@
             }
                       
         ?>
-        </div>
-        <div id="map">Map</div>
-
-        <script>
-        function myMap() {
-        var mapProp= {
-            center:new google.maps.LatLng(51.508742,-0.120850),
-            zoom:5,
-        };
-        var map = new google.maps.Map(document.getElementById("map"),mapProp);
-        }
-        </script>
-
-<script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAemgF3ZfOatUROFmve8fdjf1oxE4jCJ34&callback=initMap">
-</script>
-      
-        
+        <br>   
+        <br>   
 
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -99,25 +102,8 @@
         <script src="https://unpkg.com/vue"></script>
         <script src="scripts/store.js"></script>
         <script src="scripts/vueScripts.js"></script>
-        <?php
-            if(isset($_SESSION["username"])){
-                $loggedInUser = $_SESSION["username"];
-                echo $loggedInUser;
-                $cartArr = array();
-                $sql = "SELECT * FROM cart WHERE cart_user = '$loggedInUser'";
-                $result = $mysqli -> query($sql);
-                if($result->num_rows > 0){    
-                    while($row = $result->fetch_assoc()) {
-                        array_push($cartArr,$row["cart_product"],$row["quantity"]);
-                    }
-                }    
-                //var_dump($cartArr);
-                //call to JS function with a Vue hook
-                echo '<script>cleanUpVue();</script>';
-            }else{
-                echo "user not logged in";
-            }
-    ?>
+
+
 
     </body>
 
