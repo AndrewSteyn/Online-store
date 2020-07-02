@@ -3,7 +3,22 @@ session_start();
 
 include "connect.php";
 include_once 'cartItem.php';
+$currentid = $_SESSION["id"];
 
+if (isset($_POST['done'])){
+  $doneid = $_POST['done'];
+  $sql = "DELETE FROM cart
+  WHERE user_id = $currentid AND id = '$doneid'";
+   if ($mysqli->query($sql)) {
+      unset($sql);
+}else {
+  echo "Error: " . $sql . "<br>" . $mysqli->error;
+}
+}
+
+$www = "SELECT * FROM cart WHERE user_id = $currentid";
+$cartNumber = mysqli_query($mysqli, $www);
+$num_rows = mysqli_num_rows($cartNumber);
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +35,33 @@ include_once 'cartItem.php';
     </head>
 
     <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto fixed-top">
+        <a class="navbar-brand" href="../index.php"><img src="../images/logo.jpg"width="40" height="40">Di's Jewels</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="shoppingCart.php">Shopping cart: <?php echo $num_rows;?> items</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.php">About</a>
+        </li>
+        </ul>
+    </div>
+    </nav>
+    <br>
+
+
     <div class="px-4 px-lg-0">
   <!-- For demo purpose -->
-  <div class="container text-white py-5 text-center">
+  <br>
+  <div class="container text-black py-5 text-center">
     <h1 class="display-4">Your shopping cart</h1>
     </p>
   </div>
@@ -53,33 +92,23 @@ include_once 'cartItem.php';
               <thead>
               <?php
 
-              $currentid = $_SESSION["id"];
 
-                if (isset($_POST['done'])){
-                  $doneid = $_POST['done'];
-                  $sql = "DELETE FROM cart
-                  WHERE user_id = $currentid AND id = '$doneid'";
-                   if ($mysqli->query($sql)) {
-                      unset($sql);
-                }else {
-                  echo "Error: " . $sql . "<br>" . $mysqli->error;
-                }
-                }
 
                
                 $sql = "SELECT * FROM cart where user_id = $currentid";
     
                 $results = mysqli_query($mysqli, $sql);
- 
+                $totalprice=0;
                 if (mysqli_num_rows($results) > 0) {
                     while($row = mysqli_fetch_assoc($results)) {
                       $CartItem = new CartItem($row["id"],$row["product_name"],$row["product_price"],$row["product_image"]);
                       $CartItem->displayCartItem();
+                      $totalprice = $totalprice + $row["product_price"];
                         }
                     }else{
-                        echo "<br> <h3>Lets Add Some Activities</h3>";
+                        echo "<br> <h3>Lets Add Some Products</h3>";
                     }
-
+                   
                 ?>
               </thead>
               </tbody>
@@ -112,7 +141,7 @@ include_once 'cartItem.php';
           <div class="p-4">
             <ul class="list-unstyled mb-4">
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                <h5 class="font-weight-bold">$400.00</h5>
+                <h5 class="font-weight-bold">R <?php echo $totalprice; ?></h5>
               </li>
             </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
           </div>
@@ -127,6 +156,10 @@ include_once 'cartItem.php';
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     </body>
+        <footer id="footer">
+            <p>Created by: Andrew Steyn</p>
+            <p>Contact information: <a id="email" href="andrewpvdrsteyn@gmail.com"> andrewpvdrsteyn@gmail.com</a></p>
+        </footer>
 </html>
 
 

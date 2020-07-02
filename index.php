@@ -5,13 +5,37 @@
 
         include_once 'include/product.php';
 
-        $_SESSION["username"] = "andrew";
         
         //Check if the user is logged in, if not then redirect him to login page
         if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 header("location: include/login.php");
                exit;}
-            
+
+               $currentid = $_SESSION["id"];
+
+
+?>
+    <?php
+
+if (isset($_POST['cartname'])) {
+    $loggedInUser = $_SESSION["id"];
+    $cleanname = ($_POST['cartname']);
+    $cleanprice = ($_POST['cartprice']);
+    $cleanimage = ($_POST['cartimage']);
+    $sql = "INSERT INTO cart (user_id, product_name, product_price, product_image)
+    VALUES ('$loggedInUser','$cleanname','$cleanprice', '$cleanimage')";
+    //Execute query and validate success
+     if ($mysqli->query($sql)) {
+        //echo "<br><br><br><div class=\"confirmMessage\"><p>Item Added To Cart</p></div>";
+        unset($sql);
+    } else {
+         echo "<br><br><br><div class=\"confirmMessage\"> Error: <br>"."<br>" . $mysqli->error . "</div";
+     }	
+}
+                $www = "SELECT * FROM cart WHERE user_id = $currentid";
+                $cartNumber = mysqli_query($mysqli, $www);
+                $num_rows = mysqli_num_rows($cartNumber);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +51,8 @@
     </head>
     <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto">
-        <a class="navbar-brand" href="index.php">Di's Jewels</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto ">
+        <a class="navbar-brand" href="index.php"><img src="images/logo.jpg"width="40" height="40"> Di's Jewels</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,17 +62,15 @@
             <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="include/shoppingCart.php">Shopping cart</a>
+            <a class="nav-link" href="include/shoppingCart.php">Shopping cart: <?php echo $num_rows ; ?> items </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="include/about.php">About</a>
         </li>
 
         </ul>
     </div>
     </nav>
-           <div class="cartIcon">
-           <a id="link" href="include/shoppingCart.php">Your Cart</a>
-           <p>{{"Item Count : " +totalItems}}</p>
-           <p>{{"--- R"+totalPrice}}</p>
-           </div>   
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-dark">
@@ -57,24 +79,7 @@
         </div>
     </div>
 
-    <?php
 
-    if (isset($_POST['cartname'])) {
-        $loggedInUser = $_SESSION["id"];;
-        $cleanname = ($_POST['cartname']);
-        $cleanprice = ($_POST['cartprice']);
-        $cleanimage = ($_POST['cartimage']);
-        $sql = "INSERT INTO cart (user_id, product_name, product_price, product_image)
-        VALUES ('$loggedInUser','$cleanname','$cleanprice', '$cleanimage')";
-        //Execute query and validate success
-         if ($mysqli->query($sql)) {
-            echo "<div class=\"confirmMessage\"><p>Item Added To Cart</p></div>";
-            unset($sql);
-        } else {
-             echo "<div class=\"confirmMessage\"> Error: <br>" . $sql . "<br>" . $mysqli->error . "</div";
-         }	
-    }
-    ?>
 
     <div class="items">
     <?php
@@ -92,7 +97,9 @@
                 echo "No products available";
             }
                       
-        ?>
+       
+
+                ?>
         <br>   
         <br>   
 
@@ -106,5 +113,9 @@
 
 
     </body>
+        <footer id="footer">
+            <p>Created by: Andrew Steyn</p>
+            <p>Contact information: <a id="email" href="andrewpvdrsteyn@gmail.com"> andrewpvdrsteyn@gmail.com</a></p>
+        </footer>
 
 </html>

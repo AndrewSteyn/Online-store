@@ -58,7 +58,7 @@ if(isset($_POST["email"])){
         "Hi <br> 
         A request for a password reset has been sent to this email address <br>
         Please follow the link below to reset your passowrd <br>
-        <a href=\"http://test/To%20Do/inc/resetByEmail.php?email=".$param4."&confirm=".password_hash($param5, PASSWORD_DEFAULT)."\">here</a> ";
+        <a href=\"http://store/include/resetByEmail.php?email=".$param4."&confirm=".password_hash($param5, PASSWORD_DEFAULT)."\">here</a> ";
                 $param->AltBody = 'This is the body in plain text for non-HTML mail clients';
                 $param->send();
                 echo 'Message has been sent';
