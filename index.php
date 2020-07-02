@@ -51,7 +51,7 @@ if (isset($_POST['cartname'])) {
     </head>
     <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto fixed-top">
         <a class="navbar-brand" href="index.php"><img src="images/logo.jpg"width="40" height="40"> Di's Jewels</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
