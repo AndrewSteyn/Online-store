@@ -45,7 +45,7 @@
         <title>Contact Information</title>
     </head>
     <body>
-
+<!-- Nav Bar Starts -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto fixed-top">
         <a class="navbar-brand" href="../index.php"><img src="../images/logo.jpg"width="40" height="40">Di's Jewels</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,17 +74,20 @@
      </ul>
     </div>
     </nav>
+        <!-- Navbar ends -->
 <br>
 <br>
 <br>
-
+<!-- header of page starts -->
 <div class="jumbotron jumbotron-fluid">
         <div class="container text-dark">
             <h1 class="display-4">Contact Us</h1>
             <p class="lead">Have any questions or queries? <br> Please fill in your information and we will contact you shortly! </p>
         </div>
     </div>
+      <!-- end of heeder -->
 
+      <!-- contact form -->
     <div class="contactFormContainer">
         <div class="contactForm">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"  method="post">
@@ -99,7 +102,8 @@
         </form>
         </div>
     </div>
-
+    <!-- end contact form -->
+    <!-- google map -->
     <div id="map"></div>
     <button class="btn" onclick="topFunction()" id="myBtn" title="Go to top">Back To Top</button>
     <script src="../scripts/store.js"></script>

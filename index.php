@@ -33,6 +33,7 @@ if (isset($_POST['cartname'])) {
          echo "<br><br><br><div class=\"confirmMessage\"> Error: <br>"."<br>" . $mysqli->error . "</div";
      }	
 }
+        //Pulling in cart Number
                 $www = "SELECT * FROM cart WHERE user_id = $currentid";
                 $cartNumber = mysqli_query($mysqli, $www);
                 $num_rows = mysqli_num_rows($cartNumber);
@@ -51,7 +52,7 @@ if (isset($_POST['cartname'])) {
         <title>Online jewels</title>
     </head>
     <body>
-
+<!-- Nav Bar Starts -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto fixed-top">
         <a class="navbar-brand" href="index.php"><img src="images/logo.jpg"width="40" height="40"> Di's Jewels</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,9 +82,9 @@ if (isset($_POST['cartname'])) {
         </ul>
     </div>
     </nav>
-
+<!-- Navbar ends -->
     
-
+<!-- header of page starts -->
         <br>
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-dark">
@@ -91,13 +92,17 @@ if (isset($_POST['cartname'])) {
             <p class="lead">These unique hand-mand pieces are crafted in the heart of the karoo, each with its own soal.</p>
         </div>
     </div>
+<!-- end of heeder -->
 
+<!-- hero image -->
     <div class="hero-images" >
     <img class="hero-image" src="images/herodi.jpg" alt="HeroImage">
     </div>
+    <!-- end hero image -->
     <br>
     <br>
     <br>
+    <!-- product selection -->
     <div class="hero-text text-dark">
         <h2>Product Selection</h2>
         <br>
@@ -109,6 +114,7 @@ if (isset($_POST['cartname'])) {
     </div>
 <br>
 <br>
+<!-- coming soon items -->
     <div class="hero-text text-dark">
         <h2>Coming Soon</h2>
         <br>

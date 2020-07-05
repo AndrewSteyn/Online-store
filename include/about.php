@@ -29,7 +29,7 @@
         <title>Online jewels</title>
     </head>
     <body>
-
+<!-- Nav Bar Starts -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto fixed-top">
         <a class="navbar-brand" href="../index.php"><img src="../images/logo.jpg"width="40" height="40">Di's Jewels</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,18 +56,23 @@
             <a class="nav-link" href="shoppingCart.php">Shopping cart: <?php echo $num_rows ; ?> items </a>
         </li>
 
-
         </ul>
     </div>
     </nav>
+    <!-- Navbar ends -->
+
+    <!-- header of page starts -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-dark">
             <h1 class="display-4">About Me</h1>
             <p class="lead">Capturing The Karoo</p>
         </div>
     </div>
+    <!-- end of heeder -->
 
-  <div class="column">
+
+<!-- about photo -->
+  <div class="about_container">
     <div class="card card2">
       <img src="../images/maindi.jpg" alt="DI" style="width:100%">
       <div class="container">
@@ -77,7 +82,9 @@
       </div>
     </div>
   </div>
-
+  <!-- end About photo -->
+<br>
+<!-- discription text -->
   <div>
       <br>
       <p class="bulkText">
@@ -92,6 +99,7 @@
             These little gems are wrapped in pure silver and transformed into wearable one of a kind Karoo Blues. Browse the catalogue now to find your special piece.
       </p>  
 </div>
+<!-- end discription text -->
 
 <button class="btn" onclick="topFunction()" id="myBtn" title="Go to top">Back To Top</button>
 <script src="../scripts/store.js"></script>

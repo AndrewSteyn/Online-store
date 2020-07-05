@@ -245,3 +245,6 @@ img {
   .btn:hover{
     transform: scale(1.02);
   }
+  .about_container{
+    text-align: center;
+  }

@@ -51,7 +51,7 @@ if (isset($_POST['cartname'])) {
         <title>Products</title>
     </head>
     <body>
-
+<!-- Nav Bar Starts -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto fixed-top">
         <a class="navbar-brand" href="index.php"><img src="../images/logo.jpg"width="40" height="40"> Di's Jewels</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,16 +81,18 @@ if (isset($_POST['cartname'])) {
         </ul>
     </div>
     </nav>
+    <!-- Navbar ends -->
 
+<!-- header of page starts -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-dark">
             <h1 class="display-4">Di van der Riet Jewellery</h1>
             <p class="lead">These unique hand-mand pieces are crafted in the heart of the karoo, each with its own soal.</p>
         </div>
     </div>
+   <!-- end of heeder -->
 
-
-
+<!-- products -->
     <div class="items">
     <?php
         $sql = "SELECT * FROM products";
@@ -110,6 +112,7 @@ if (isset($_POST['cartname'])) {
        
 
                 ?>
+                <!-- end products -->
         <br>   
         <br>   
         <button class="btn" onclick="topFunction()" id="myBtn" title="Go to top">Back To Top</button>

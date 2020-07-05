@@ -30,7 +30,7 @@
         <title>Gallery</title>
     </head>
     <body>
-
+<!-- Nav Bar Starts -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto fixed-top">
         <a class="navbar-brand" href="../index.php"><img src="../images/logo.jpg"width="40" height="40">Di's Jewels</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,17 +59,20 @@
      </ul>
     </div>
     </nav>
+    <!-- Navbar ends -->
 <br>
 <br>
 <br>
-
+<!-- header of page starts -->
 <div class="jumbotron jumbotron-fluid">
         <div class="container text-dark">
             <h1 class="display-4">Gallery</h1>
             <p class="lead">Capturing The Karoo</p>
         </div>
     </div>
+<!-- end of heeder -->
 
+<!-- gallery starts -->
 <div class="row">
     <div class="column">
       <img class="demo cursor" src="../images/1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Necklace">
@@ -90,7 +93,7 @@
       <img class="demo cursor" src="../images/6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Pendant">
     </div>
   </div>
-
+<!-- modal -->
 <div class="container">
   <div class="mySlides">
     <div class="numbertext">1 / 6</div>
@@ -129,6 +132,7 @@
     <p id="caption"></p>
   </div>
 </div>
+<!-- end of gallery -->
 <br>
 <br>
 

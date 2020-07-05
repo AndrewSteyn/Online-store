@@ -35,7 +35,7 @@ $num_rows = mysqli_num_rows($cartNumber);
     </head>
 
     <body>
-
+<!-- Nav Bar Starts -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto fixed-top">
         <a class="navbar-brand" href="../index.php"><img src="../images/logo.jpg"width="40" height="40">Di's Jewels</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,17 +64,19 @@ $num_rows = mysqli_num_rows($cartNumber);
         </ul>
     </div>
     </nav>
+     <!-- Navbar ends -->
     <br>
 
 
     <div class="px-4 px-lg-0">
-  <!-- For demo purpose -->
   <br>
+  <!-- header -->
   <div class="container text-black py-5 text-center">
     <h1 class="display-4">Your shopping cart</h1>
     </p>
   </div>
-  <!-- End -->
+  <!-- end header -->
+ 
 
   <div class="pb-5">
     <div class="container">
@@ -126,7 +128,7 @@ $num_rows = mysqli_num_rows($cartNumber);
           <!-- End -->
         </div>
       </div>
-
+<!-- cheack-out section -->
       <div class="row py-5 p-4 bg-white rounded shadow-sm">
         <div class="col-lg-6">
           <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
@@ -160,6 +162,7 @@ $num_rows = mysqli_num_rows($cartNumber);
     </div>
   </div>
 </div>
+<!-- end checkout -->
 <button class="btn" onclick="topFunction()" id="myBtn" title="Go to top">Back To Top</button>
 <script src="../scripts/store.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
