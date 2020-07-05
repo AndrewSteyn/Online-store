@@ -25,8 +25,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
         <link rel="stylesheet" href="../css/styles.css">
+        
 
-        <title>Online jewels</title>
+        <title>Gallery</title>
     </head>
     <body>
 
@@ -55,46 +56,89 @@
         <li class="nav-item">
             <a class="nav-link" href="shoppingCart.php">Shopping cart: <?php echo $num_rows ; ?> items </a>
         </li>
-
-
-        </ul>
+     </ul>
     </div>
     </nav>
-    <div class="jumbotron jumbotron-fluid">
+<br>
+<br>
+<br>
+
+<div class="jumbotron jumbotron-fluid">
         <div class="container text-dark">
-            <h1 class="display-4">About Me</h1>
+            <h1 class="display-4">Gallery</h1>
             <p class="lead">Capturing The Karoo</p>
         </div>
     </div>
 
-  <div class="column">
-    <div class="card card2">
-      <img src="../images/maindi.jpg" alt="DI" style="width:100%">
-      <div class="container">
-        <h2>Di Steyn</h2>
-        <p class="title">Jewellery Designer, Goldsmith, Gemologist, Entrepreneur</p>
-        <p>divdrsteyn@gmail.com</p>
-      </div>
+<div class="row">
+    <div class="column">
+      <img class="demo cursor" src="../images/1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Necklace">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../images/2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Pendant">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../images/3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Necklace">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../images/4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Ring">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../images/5.jpg" style="width:100%" onclick="currentSlide(5)" alt="Ring">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="../images/6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Pendant">
     </div>
   </div>
 
-  <div>
-      <br>
-      <p class="bulkText">
-            Di lives with her husband and two children on a small holding in the village of Prince Albert .<br><br> Creating jewellery out of ‘found’ objects has been an obsession of hers since university. 
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="../images/1.jpg" style="width:100%">
+  </div>
 
-            Starting her career by studying a Bachelors of Fine Art majoring in Jewellery design at Stellenbosch University in 1979. There after she won the Maggie Laubser scholarship to further her studies in both England and Germany. After she lived and worked across Europe she came back to South Africa where she mainly worked in Plettenberg Bay, exhibiting widely and doing a lot of commission work. In 1999 she moved to Prince Albert and she continued to work in both gold and silver as well as starting her own line.
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="../images/2.jpg" style="width:100%">
+  </div>
 
-            Her current line ‘Karoo Blues’ is inspired by the collection of found objects she has gathered over the years.<br><br>
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="../images/3.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="../images/4.jpg" style="width:100%">
+  </div>
 
-            “In a ‘dorp’ which is rich in history, one often walks nose down in the veld, searching for that piece…bits of Karoo blue and red shards. I wonder who used that piece of crockery 150 years ago? Someone else’s precious plate or cup, treasures in the ground, discarded in the garbage heap.”
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="../images/5.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="../images/6.jpg" style="width:100%">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
 
-            These little gems are wrapped in pure silver and transformed into wearable one of a kind Karoo Blues. Browse the catalogue now to find your special piece.
-      </p>  
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
 </div>
+<br>
+<br>
 
 <button class="btn" onclick="topFunction()" id="myBtn" title="Go to top">Back To Top</button>
-<script src="../scripts/store.js"></script>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="../scripts/store.js"></script>
     </body>
         <footer id="footer">
             <p>Created by: Andrew Steyn</p>

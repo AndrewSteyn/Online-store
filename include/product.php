@@ -16,7 +16,7 @@ class product{
 
         echo
             "<div class=\"card\" style=\"width: 18rem;\">
-                <img src=\"images/$this->image.jpg\" class=\"card-img-top\" >
+                <img src=\"../images/$this->image.jpg\" class=\"card-img-top\" >
                 <div class=\"card-body\">
                     <h5 class=\"card-title\">$this->name</h5>
                     <p class=\"card-text\">R$this->price</p>
@@ -34,7 +34,7 @@ class product{
                         </button>
                     </div>
                     <div class=\"modal-body\">
-                        <img src=\"images/$this->image\" class=\"img-rounded popup\">
+                        <img src=\"../images/$this->image\" class=\"img-rounded popup\">
                         </br>
                         <p class=\"descrip\">$this->description<p>
 
